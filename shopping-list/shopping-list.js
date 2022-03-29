@@ -4,6 +4,9 @@ checkAuth();
 
 const form = document.querySelector('form');
 const logoutButton = document.getElementById('logout');
+const listEl = document.querySelector('.shopping-list');
+const deleteButton = document.getElementById('delete-list');
+
 
 logoutButton.addEventListener('click', () => {
     logout();
@@ -26,6 +29,12 @@ form.addEventListener('submit', async (e) =>{
 
     await fetchAndDisplayList();
 
+});
+
+deleteButton.addEventListener('click', async () => {
+    await deleteAllItems();
+
+    await fetchAndDisplayList();
 });
 
 async function fetchAndDisplayList() {
