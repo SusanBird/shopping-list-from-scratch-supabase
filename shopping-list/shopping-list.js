@@ -14,7 +14,8 @@ form.addEventListener('submit', async (e) =>{
 
     const data = new FormData(form);
 
-    alert('it works');
+    alert(data.get('amount') + data.get('item'));
+    
 
 
 });
