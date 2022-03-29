@@ -63,7 +63,16 @@ export async function buyItem(id) {
     return response.body;
 }
 
+export async function deleteAllItems() {
+    const user = getUser();
 
+    const response = await client
+        .from ('shopping_list_items')
+        .delete()
+        .match({ user_id: user.id });
+    
+    return response.body;
+}
 
 
 
