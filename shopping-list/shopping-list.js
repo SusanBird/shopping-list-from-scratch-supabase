@@ -6,6 +6,7 @@ const form = document.querySelector('form');
 const logoutButton = document.getElementById('logout');
 const listEl = document.querySelector('.shopping-list');
 const deleteButton = document.getElementById('delete-list');
+const loadingEl = document.querySelector('.loading-spinner');
 
 
 logoutButton.addEventListener('click', () => {
@@ -59,11 +60,12 @@ async function fetchAndDisplayList() {
                 fetchAndDisplayList();
             });
         }
-
-  
-
         listEl.append(listItemEl);
     }
 
     toggleLoadingSpinner();
+}
+
+function toggleLoadingSpinner() {
+    loadingEl.classList.toggle('invisible');
 }
