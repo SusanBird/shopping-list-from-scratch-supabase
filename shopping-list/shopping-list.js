@@ -1,4 +1,4 @@
-import { checkAuth, logout, createItem, getItems, deleteAllItems, buyItem } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, deleteAllItems, buyItem, } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -27,3 +27,34 @@ form.addEventListener('submit', async (e) =>{
     await fetchAndDisplayList();
 
 });
+
+async function fetchAndDisplayList() {
+    toggleLoadingSpinner();
+
+    listEl.textContent = '';
+
+    const shoppingList = await getItems();
+
+    for (let listItem of shoppingList) {
+        const listItemEl = document.createElement('p');
+
+        listItemEl.classList.add('list-item');
+        listItemEl.textContent = `${listItem.amount} ${listItem.item}`;
+
+        if (listItem.is_bought) {
+            listItemEl.classList.add('is-bought');
+        } else {
+            listItemEl.addEventListener('click', async () => {
+                await buyItem(listItem.id);
+    
+                fetchAndDisplayList();
+            });
+        }
+
+  
+
+        listEl.append(listItemEl);
+    }
+
+    toggleLoadingSpinner();
+}
