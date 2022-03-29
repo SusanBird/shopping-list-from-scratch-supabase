@@ -48,11 +48,10 @@ export async function getItems() {
 export async function createItem(listItem) {
     const response = await client  
         .from('shopping_list_items')
-        .inset(listItem);
+        .insert(listItem);
 
     return response.body;
 }
-
 
 export async function buyItem(id) {
     const response = await client

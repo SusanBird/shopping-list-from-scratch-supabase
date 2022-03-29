@@ -1,4 +1,4 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, deleteAllItems, buyItem } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -14,8 +14,16 @@ form.addEventListener('submit', async (e) =>{
 
     const data = new FormData(form);
 
-    alert(data.get('amount') + data.get('item'));
-    
+    // alert(data.get('amount') + data.get('item'));
 
+    await createItem({
+        amount: data.get('amount'),
+        item: data.get('item'),
+        is_bought: false,
+    });
+
+    form.reset();
+
+    await fetchAndDisplayList();
 
 });
