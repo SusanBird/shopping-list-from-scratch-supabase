@@ -86,11 +86,11 @@ footer {
 
 @keyframes pulse {
     20% {
-        transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
+        transform: rotate(3d (-10, -10, -10) 50deg) scale(1.2);
     }
 
     40% {
-        transform: rotate3d(10, 10, -10, 50deg) scale(1);
+        transform: rotate3d(10, 10, -10, 50deg) scale(5);
     }
 
     60% {
@@ -98,7 +98,7 @@ footer {
     }
 
     80% {
-        transform: rotate3d(10, 10, 10, 50deg) scale(1);
+        transform: rotate3d(10, 10, 10, 50deg) scale(5);
     }
 }
 
@@ -135,15 +135,14 @@ footer {
 }
 
 .list-item:hover {
-    background-color: aquamarine;
+    background-color: rgb(184, 138, 245);
 }
 
 #delete-list {
-    background-color: red;
-    border: none;
+    background-color: var(--color1);
+    border: black 20px;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: var(--shadow);
     cursor: pointer;
 }
 
@@ -154,7 +153,7 @@ footer {
 }
 
 .loading-spinner {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(224, 53, 53, 0.85);
     font-size: 5rem;
     color: white;
     position: fixed;
@@ -170,5 +169,5 @@ footer {
 }
 
 #loading-text {
-    animation: pulse 1s infinite ease-in-out;
+    animation: pulse 2s infinite ease-in-out;
 }

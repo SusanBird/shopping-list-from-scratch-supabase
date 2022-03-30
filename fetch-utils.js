@@ -73,9 +73,6 @@ export async function deleteAllItems() {
     return response.body;
 }
 
-export async function fetchAndDisplayList() {
-
-}
 
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;
