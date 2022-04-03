@@ -14,13 +14,44 @@ If you work on more than one feature at a time, you are guaranteed to multiply y
 1. **Think about how to validate each of your features according to a Definition of Done**
 1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
 
-Additional considerations:
+## Sign in page
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+-   Already done on template
+
+## Supabase table
+
+    - 'shopping_list_items'
+    - amount: int2
+    - item_name: string
+    - is_bought: boolean
+
+## Shopping List
+
+    - form
+    - div for list
+    - button - delete
+
+## Events
+
+1. when submit form, add item to shopping list
+
+    - get data from the form
+    - call createItem function
+    - re-fetch and re-append
+        - loading spinner
+
+2. on load, fetch and display the list of shopping items
+
+    - window 'load' event listener
+    - fetch shopping items for this user from supabase
+    - loop through the items, render and append
+        - each item is clickable
+        - use data to decide whether crossed out or not
+
+3. on click of delete button, clear list
+    - clear out DOM
+    - delete every item on the table in supabase
+4. on click of item, "buy" it and rerender as crossed out
+    - update this item's `is_bought` property to `true`
+    - re-fetch and re-append
+      loading spinner

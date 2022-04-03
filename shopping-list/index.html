@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <div class="loading-spinner invisible">
+        <span id="loading-text">Loading . . .</span>
+    </div>
     <header>
         <div class="gutter-right logo">
             <img src="../assets/big-logo.png" />
@@ -21,12 +24,24 @@
     </header>    
     <button id="logout">Logout</button>
     <main>
-        <h1>You are logged in!</h1>
+        <p>You are logged in.</p>
+       <form>
+           
+           <input placeholder="1" type="number" name="amount" />
+           <input placeholder="grape" name="item" />
+           <button>Add item</button>
+       </form>
+       <button id="delete-list">
+        Delete List
+        </button>
+       <section class="shopping-list">
+
+       </section>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-    <script type="module" src="./other-page.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
 </body>
 
 </html>
