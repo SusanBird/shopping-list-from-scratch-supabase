@@ -69,3 +69,7 @@ async function fetchAndDisplayList() {
 function toggleLoadingSpinner() {
     loadingEl.classList.toggle('invisible');
 }
+
+window.addEventListener('load', () => {
+    fetchAndDisplayList();
+});
